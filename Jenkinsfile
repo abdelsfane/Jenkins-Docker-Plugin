@@ -1,3 +1,4 @@
+#!/usr/bin/env groovy
 import com.nirima.jenkins.plugins.docker.DockerCloud
 import com.nirima.jenkins.plugins.docker.DockerTemplate
 import com.nirima.jenkins.plugins.docker.DockerTemplateBase
