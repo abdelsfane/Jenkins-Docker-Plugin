@@ -4,7 +4,7 @@ node {
   stage("Update") {
       sh '''
       echo "Hello!"
-        sudo apt-get update
+        sudo apt-get update -y
         '''
   }
   stage("Install") {
@@ -13,7 +13,7 @@ node {
             apt-transport-https \
             ca-certificates \
             curl \
-            software-properties-common
+            software-properties-common -y
         '''
   }
   stage("Curl") {
@@ -23,7 +23,7 @@ node {
   }
   stage("Fingerprint") {
       sh '''
-        sudo apt-key fingerprint 0EBFCD88
+        sudo apt-key fingerprint 0EBFCD88 -y
         '''
   }
   stage("Get Repo") {
@@ -31,17 +31,17 @@ node {
         sudo add-apt-repository \
            "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
            $(lsb_release -cs) \
-           stable"
+           stable -y"
         '''
   }
   stage("Update") {
       sh '''
-        sudo apt-get update
+        sudo apt-get update -y
         '''
   }
   stage("Run Apt-Get") {
       sh '''
-        sudo apt-get install docker-ce
+        sudo apt-get install docker-ce -y
         '''
   }
   stage("Run Docker") {
